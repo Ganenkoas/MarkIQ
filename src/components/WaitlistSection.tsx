@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import { WaitlistForm } from "./WaitlistForm";
+import { useI18n } from "@/i18n/I18nProvider";
 
 export function WaitlistSection() {
+    const { t } = useI18n();
     return (
         <section id="waitlist" className="py-24 relative z-10 w-full mb-20 scroll-m-20">
             <motion.div
@@ -17,10 +19,10 @@ export function WaitlistSection() {
 
                 <div className="relative z-10 w-full">
                     <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tight mb-6 max-w-2xl mx-auto">
-                        Время строить, не анализировать
+                        {t.waitlist.title}
                     </h2>
                     <p className="text-lg md:text-xl text-slate-600 font-medium max-w-xl mx-auto mb-12">
-                        Идея проработана. Встаньте в очередь первыми. Рынок не будет ждать.
+                        {t.waitlist.sub}
                     </p>
 
                     <WaitlistForm />

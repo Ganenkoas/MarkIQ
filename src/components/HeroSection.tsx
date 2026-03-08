@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import { WaitlistForm } from "./WaitlistForm";
+import { useI18n } from "@/i18n/I18nProvider";
 
 export function HeroSection() {
+    const { t } = useI18n();
     return (
         <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 flex flex-col items-center justify-center text-center min-h-[90vh]">
             <motion.div
@@ -13,7 +15,7 @@ export function HeroSection() {
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-200 bg-white/60 backdrop-blur-md mb-8 shadow-sm"
             >
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-xs uppercase tracking-wider font-semibold text-slate-600">Экономит до 98% времени</span>
+                <span className="text-xs uppercase tracking-wider font-semibold text-slate-600">{t.hero.badge}</span>
             </motion.div>
 
             <motion.h1
@@ -31,7 +33,7 @@ export function HeroSection() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-2xl md:text-4xl text-slate-700 font-semibold mb-6"
             >
-                Маркетинговый мозг в кармане
+                {t.hero.title1}
             </motion.h2>
 
             <motion.p
@@ -40,7 +42,7 @@ export function HeroSection() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="text-lg text-slate-600 max-w-2xl mx-auto mb-12"
             >
-                Загружаете ссылку на сайт или описание бизнеса. Через две минуты получаете результат, на который у агентства уходит неделя.
+                {t.hero.sub}
             </motion.p>
 
             {/* Фактоиды */}
@@ -51,18 +53,18 @@ export function HeroSection() {
                 className="flex flex-wrap justify-center gap-8 mb-16"
             >
                 <div className="flex flex-col items-center">
-                    <span className="text-3xl font-black text-slate-800 mb-1">2 мин</span>
-                    <span className="text-sm font-medium text-slate-500">вместо 1–2 недель</span>
+                    <span className="text-3xl font-black text-slate-800 mb-1">{t.hero.m1v}</span>
+                    <span className="text-sm font-medium text-slate-500">{t.hero.m1s}</span>
                 </div>
                 <div className="w-px h-12 bg-slate-200 hidden md:block" />
                 <div className="flex flex-col items-center">
-                    <span className="text-3xl font-black text-slate-800 mb-1">10+</span>
-                    <span className="text-sm font-medium text-slate-500">видов анализа</span>
+                    <span className="text-3xl font-black text-slate-800 mb-1">{t.hero.m2v}</span>
+                    <span className="text-sm font-medium text-slate-500">{t.hero.m2s}</span>
                 </div>
                 <div className="w-px h-12 bg-slate-200 hidden md:block" />
                 <div className="flex flex-col items-center">
-                    <span className="text-3xl font-black text-slate-800 mb-1">9/10</span>
-                    <span className="text-sm font-medium text-slate-500">оценка точности</span>
+                    <span className="text-3xl font-black text-slate-800 mb-1">{t.hero.m3v}</span>
+                    <span className="text-sm font-medium text-slate-500">{t.hero.m3s}</span>
                 </div>
             </motion.div>
 

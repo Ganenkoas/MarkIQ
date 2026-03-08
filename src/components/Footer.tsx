@@ -1,8 +1,10 @@
 "use client";
 
 import { Mail } from "lucide-react";
+import { useI18n } from "@/i18n/I18nProvider";
 
 export function Footer() {
+    const { t } = useI18n();
     const currentYear = new Date().getFullYear();
 
     return (
@@ -15,7 +17,7 @@ export function Footer() {
                             MARK<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">IQ</span>
                         </span>
                         <p className="text-slate-600 mb-6 max-w-sm">
-                            Маркетинговый мозг в кармане. Интеллектуальные стратегии, анализ аудитории и конкурентов за 2 минуты.
+                            {t.footer.desc}
                         </p>
                         <a href="mailto:hello@markiq.com" className="inline-flex items-center gap-2 text-slate-600 hover:text-primary font-medium transition-colors">
                             <Mail className="w-5 h-5" />
@@ -24,21 +26,21 @@ export function Footer() {
                     </div>
 
                     <div>
-                        <h4 className="font-bold text-slate-900 mb-4">Продукт</h4>
+                        <h4 className="font-bold text-slate-900 mb-4">{t.footer.links}</h4>
                         <ul className="space-y-3">
-                            <li><a href="#how-it-works" className="text-slate-600 hover:text-primary transition-colors text-sm">Как это работает</a></li>
-                            <li><a href="#features" className="text-slate-600 hover:text-primary transition-colors text-sm">Модули</a></li>
-                            <li><a href="#pricing" className="text-slate-600 hover:text-primary transition-colors text-sm">Тарифы</a></li>
-                            <li><a href="#waitlist" className="text-slate-600 hover:text-primary transition-colors text-sm">Ранний доступ</a></li>
+                            <li><a href="#how-it-works" className="text-slate-600 hover:text-primary transition-colors text-sm">{t.nav.how}</a></li>
+                            <li><a href="#features" className="text-slate-600 hover:text-primary transition-colors text-sm">{t.nav.features}</a></li>
+                            <li><a href="#pricing" className="text-slate-600 hover:text-primary transition-colors text-sm">{t.nav.pricing}</a></li>
+                            <li><a href="#waitlist" className="text-slate-600 hover:text-primary transition-colors text-sm">{t.common.waitlist}</a></li>
                         </ul>
                     </div>
 
                     <div>
-                        <h4 className="font-bold text-slate-900 mb-4">Правовая информация</h4>
+                        <h4 className="font-bold text-slate-900 mb-4">{t.footer.legal}</h4>
                         <ul className="space-y-3">
-                            <li><a href="#" className="text-slate-600 hover:text-primary transition-colors text-sm">Политика конфиденциальности</a></li>
-                            <li><a href="#" className="text-slate-600 hover:text-primary transition-colors text-sm">Пользовательское соглашение</a></li>
-                            <li><a href="#" className="text-slate-600 hover:text-primary transition-colors text-sm">Публичная оферта</a></li>
+                            <li><a href="#" className="text-slate-600 hover:text-primary transition-colors text-sm">{t.footer.privacy}</a></li>
+                            <li><a href="#" className="text-slate-600 hover:text-primary transition-colors text-sm">{t.footer.terms}</a></li>
+                            <li><a href="#" className="text-slate-600 hover:text-primary transition-colors text-sm">{t.footer.offer}</a></li>
                         </ul>
                     </div>
 
@@ -46,11 +48,11 @@ export function Footer() {
 
                 <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-slate-500 text-sm">
-                        © {currentYear} MarkIQ. Все права защищены.
+                        © {currentYear} MarkIQ. {t.footer.rights}
                     </p>
                     <div className="flex items-center gap-4">
                         <span className="text-xs font-semibold uppercase tracking-widest text-slate-400 bg-slate-100 px-3 py-1 rounded-full">
-                            Ограниченная бета-версия
+                            {t.footer.beta}
                         </span>
                     </div>
                 </div>

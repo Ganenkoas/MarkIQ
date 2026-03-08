@@ -2,31 +2,33 @@
 
 import { motion } from "framer-motion";
 import { UploadCloud, Link as LinkIcon, Cpu, FileDown } from "lucide-react";
+import { useI18n } from "@/i18n/I18nProvider";
 
 export function HowItWorksSection() {
+    const { t } = useI18n();
     const steps = [
         {
             number: "01",
-            title: "Загрузка данных",
-            description: "Вставьте ссылку на сайт. Или напишите пару слов о вашем бизнесе. Никаких долгих брифов.",
+            title: t.how.s1t,
+            description: t.how.s1d,
             icon: LinkIcon,
         },
         {
             number: "02",
-            title: "Выбор задачи",
-            description: "Выберите нужную карточку: анализ сайта, разбор конкурентов, аудитория или контент-план.",
+            title: t.how.s2t,
+            description: t.how.s2d,
             icon: UploadCloud,
         },
         {
             number: "03",
-            title: "AI-генерация",
-            description: "Приложение собирает реальные данные с рынка. Оно пишет понятный отчет с выводами.",
+            title: t.how.s3t,
+            description: t.how.s3d,
             icon: Cpu,
         },
         {
             number: "04",
-            title: "Экспорт и действие",
-            description: "Ваш отчет готов. Скачайте его в PDF. Отправьте команде в удобный рабочий чат.",
+            title: t.how.s4t,
+            description: t.how.s4d,
             icon: FileDown,
         },
     ];
@@ -34,8 +36,8 @@ export function HowItWorksSection() {
     return (
         <section id="how-it-works" className="py-24 relative z-10">
             <div className="flex flex-col items-center text-center mb-20">
-                <span className="text-secondary font-bold tracking-wider uppercase text-sm mb-3">Пользовательский путь</span>
-                <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Как это работает</h2>
+                <span className="text-secondary font-bold tracking-wider uppercase text-sm mb-3">{t.how.sub}</span>
+                <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">{t.how.title}</h2>
             </div>
 
             <div className="relative">

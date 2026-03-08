@@ -5,18 +5,20 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { ArrowRight, Loader2, CheckCircle } from "lucide-react";
-
-const formSchema = z.object({
-    email: z.string().email("Введите корректный email"),
-    role: z.enum(["Startup", "Marketer", "BusinessOwner", "Other"], {
-        errorMap: () => ({ message: "Выберите вашу роль" }),
-    }),
-});
-
-type FormValues = z.infer<typeof formSchema>;
+import { useI18n } from "@/i18n/I18nProvider";
 
 export function WaitlistForm() {
     const [isSuccess, setIsSuccess] = useState(false);
+    const { t } = useI18n();
+
+    const formSchema = z.object({
+        email: z.string().email(t.form.req),
+        role: z.enum(["Startup", "Marketer", "BusinessOwner", "Other"], {
+            errorMap: () => ({ message: t.form.roleReq }),
+        }),
+    });
+
+    type FormValues = z.infer<typeof formSchema>;
 
     const {
         register,
@@ -42,8 +44,7 @@ export function WaitlistForm() {
         return (
             <div className="flex flex-col items-center justify-center p-8 bg-white/80 backdrop-blur-md rounded-2xl animate-in fade-in zoom-in duration-500 text-center font-medium border border-slate-200 shadow-glass">
                 <CheckCircle className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl text-slate-900 mb-2">Заявка принята!</h3>
-                <p className="text-slate-600">Вы в списке. Мы напишем вам, когда всё будет готово.</p>
+                <h3 className="text-xl text-slate-900 mb-2">{t.form.success}</h3>
             </div>
         );
     }
@@ -54,7 +55,7 @@ export function WaitlistForm() {
                 <input
                     {...register("email")}
                     type="email"
-                    placeholder="Ваш лучший email"
+                    placeholder={t.hero.placeholder}
                     className="w-full h-14 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-xl px-4 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-primary/60 focus:ring-4 focus:ring-primary/20 transition-all duration-300 shadow-sm"
                 />
                 {errors.email && (
@@ -68,11 +69,11 @@ export function WaitlistForm() {
                     className="w-full h-14 bg-white/80 backdrop-blur-sm text-slate-900 border border-slate-200 rounded-xl px-4 placeholder:text-slate-400 focus:outline-none focus:border-secondary/60 focus:ring-4 focus:ring-secondary/20 transition-all duration-300 appearance-none shadow-sm cursor-pointer"
                     defaultValue=""
                 >
-                    <option value="" disabled hidden>Кто вы?</option>
-                    <option value="Startup">Стартап</option>
-                    <option value="Marketer">Маркетолог</option>
-                    <option value="BusinessOwner">Владелец бизнеса</option>
-                    <option value="Other">Другое</option>
+                    <option value="" disabled hidden>{t.form.selectMsg}</option>
+                    <option value="Startup">{t.form.r3}</option>
+                    <option value="Marketer">{t.form.r2}</option>
+                    <option value="BusinessOwner">{t.form.r1}</option>
+                    <option value="Other">Other</option>
                 </select>
                 {errors.role && (
                     <span className="absolute -bottom-6 left-2 text-xs text-red-500 font-medium">{errors.role.message}</span>
@@ -85,10 +86,10 @@ export function WaitlistForm() {
                 className="w-full h-14 mt-8 bg-slate-900 text-white font-semibold rounded-xl flex items-center justify-center gap-2 hover:bg-slate-800 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-slate-900/20 active:scale-[0.98] transition-all disabled:opacity-70 disabled:cursor-not-allowed group cursor-pointer"
             >
                 {isSubmitting ? (
-                    <Loader2 className="w-5 h-5 animate-spin text-white" />
+                    <span className="flex items-center gap-2"><Loader2 className="w-5 h-5 animate-spin text-white" /> {t.form.searching}</span>
                 ) : (
                     <>
-                        Хочу в ранний доступ
+                        {t.hero.join}
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </>
                 )}

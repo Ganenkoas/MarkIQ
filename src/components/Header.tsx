@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Mail } from "lucide-react";
+import { useI18n } from "@/i18n/I18nProvider";
 
 export function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -16,11 +17,13 @@ export function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const { t, locale, setLocale } = useI18n();
+
     const navLinks = [
-        { name: "Как это работает", href: "#how-it-works" },
-        { name: "Модули", href: "#features" },
-        { name: "Кому подойдет", href: "#audience" },
-        { name: "Тарифы", href: "#pricing" },
+        { name: t.nav.how, href: "#how-it-works" },
+        { name: t.nav.features, href: "#features" },
+        { name: t.nav.audience, href: "#audience" },
+        { name: t.nav.pricing, href: "#pricing" },
     ];
 
     const scrollTo = (id: string) => {
@@ -62,6 +65,11 @@ export function Header() {
 
                     {/* Contacts / CTA Desktop */}
                     <div className="hidden md:flex items-center gap-6">
+                        <div className="flex items-center gap-2 mr-2">
+                            <button onClick={() => setLocale("ru")} className={`text-xs font-bold transition-colors ${locale === 'ru' ? 'text-primary' : 'text-slate-400 hover:text-slate-600'}`}>RU</button>
+                            <span className="text-slate-300 text-xs">|</span>
+                            <button onClick={() => setLocale("en")} className={`text-xs font-bold transition-colors ${locale === 'en' ? 'text-primary' : 'text-slate-400 hover:text-slate-600'}`}>EN</button>
+                        </div>
                         <a href="mailto:hello@markiq.com" className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
                             <Mail className="w-4 h-4" />
                             hello@markiq.com
@@ -70,7 +78,7 @@ export function Header() {
                             onClick={() => scrollTo("#waitlist")}
                             className="px-5 py-2.5 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-all shadow-md shadow-slate-900/10 hover:shadow-lg active:scale-95"
                         >
-                            В лист ожидания
+                            {t.common.waitlist}
                         </button>
                     </div>
 
@@ -108,11 +116,16 @@ export function Header() {
                             <Mail className="w-4 h-4" />
                             hello@markiq.com
                         </a>
+                        <div className="flex items-center justify-center gap-4 py-3">
+                            <button onClick={() => setLocale("ru")} className={`text-sm font-bold transition-colors ${locale === 'ru' ? 'text-primary' : 'text-slate-400'}`}>RU</button>
+                            <span className="text-slate-300">|</span>
+                            <button onClick={() => setLocale("en")} className={`text-sm font-bold transition-colors ${locale === 'en' ? 'text-primary' : 'text-slate-400'}`}>EN</button>
+                        </div>
                         <button
                             onClick={() => scrollTo("#waitlist")}
                             className="mx-4 mt-2 py-3 rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-colors"
                         >
-                            В лист ожидания
+                            {t.common.waitlist}
                         </button>
                     </motion.div>
                 )}

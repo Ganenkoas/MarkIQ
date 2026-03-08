@@ -2,36 +2,22 @@
 
 import { motion } from "framer-motion";
 import { Briefcase, UserPlus, Rocket, Building2 } from "lucide-react";
+import { useI18n } from "@/i18n/I18nProvider";
 
 export function TargetAudienceSection() {
+    const { t } = useI18n();
     const audiences = [
-        {
-            title: "Владельцам бизнеса",
-            text: "У вас нет маркетолога. Нет времени на метрики. Вы хотите получить результат, а не бесконечный процесс.",
-            icon: Briefcase,
-        },
-        {
-            title: "Фрилансерам",
-            text: "Идеальный инструмент для старта с клиентом. Экономьте часы на рутине. Берите дорогие проекты.",
-            icon: UserPlus,
-        },
-        {
-            title: "Стартапам",
-            text: "Быстрая проверка бизнес-гипотез. Найдите свою аудиторию без найма дорогого агентства.",
-            icon: Rocket,
-        },
-        {
-            title: "Рекламным агентствам",
-            text: "Автоматизируйте первичные брифы и аудиты. Ускорьте работу всей команды в несколько раз.",
-            icon: Building2,
-        },
+        { title: t.audience.a1t, text: t.audience.a1d, icon: Briefcase },
+        { title: t.audience.a2t, text: t.audience.a2d, icon: UserPlus },
+        { title: t.audience.a3t, text: t.audience.a3d, icon: Rocket },
+        { title: t.audience.a4t, text: t.audience.a4d, icon: Building2 },
     ];
 
     return (
         <section id="audience" className="py-24 relative z-10">
             <div className="flex flex-col items-center text-center mb-16">
-                <span className="text-secondary font-bold tracking-wider uppercase text-sm mb-3">Кому это нужно</span>
-                <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Кому поможет MarkIQ</h2>
+                <span className="text-secondary font-bold tracking-wider uppercase text-sm mb-3">{t.audience.sub}</span>
+                <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">{t.audience.title}</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">

@@ -2,38 +2,21 @@
 
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import { useI18n } from "@/i18n/I18nProvider";
 
 export function PricingSection() {
+    const { t } = useI18n();
     const plans = [
-        {
-            name: "Free",
-            price: "$0",
-            period: "навсегда",
-            features: ["3 анализа в месяц", "3 базовых модуля", "PDF-экспорт"],
-            highlight: false,
-        },
-        {
-            name: "Pro",
-            price: "$19",
-            period: "в месяц",
-            features: ["Безлимитные анализы", "Все 10+ модулей", "История проектов", "Экспорт в PDF и Notion"],
-            highlight: true,
-            badge: "Популярный",
-        },
-        {
-            name: "Agency",
-            price: "$79",
-            period: "в месяц",
-            features: ["До 10 пользователей", "Свой логотип на отчетах", "API-доступ"],
-            highlight: false,
-        },
+        { name: t.pricing.p1n, price: "$0", period: t.pricing.forever, features: [t.pricing.p1f1, t.pricing.p1f2, t.pricing.p1f3], highlight: false },
+        { name: t.pricing.p2n, price: "$19", period: t.pricing.mo, features: [t.pricing.p2f1, t.pricing.p2f2, t.pricing.p2f3, t.pricing.p2f4], highlight: true, badge: t.pricing.popular },
+        { name: t.pricing.p3n, price: "$79", period: t.pricing.mo, features: [t.pricing.p3f1, t.pricing.p3f2, t.pricing.p3f3], highlight: false },
     ];
 
     return (
         <section id="pricing" className="py-24 relative z-10 w-full">
             <div className="flex flex-col items-center text-center mb-16">
-                <span className="text-secondary font-bold tracking-wider uppercase text-sm mb-3">Бизнес-модель</span>
-                <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Тарифы</h2>
+                <span className="text-secondary font-bold tracking-wider uppercase text-sm mb-3">{t.pricing.sub}</span>
+                <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">{t.pricing.title}</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-5xl mx-auto">
@@ -74,7 +57,7 @@ export function PricingSection() {
 
                         <button className={`w-full py-4 rounded-2xl font-bold transition-all ${plan.highlight ? "bg-primary hover:bg-cyan-600 text-white shadow-lg shadow-primary/30" : "bg-slate-100 hover:bg-slate-200 text-slate-900"
                             }`}>
-                            Выбрать {plan.name}
+                            {t.pricing.choose} {plan.name}
                         </button>
                     </motion.div>
                 ))}
