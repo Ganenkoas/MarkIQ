@@ -26,16 +26,17 @@ export function TargetAudienceSection() {
                         key={i}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "0px" }}
+                        viewport={{ once: true, margin: "0px", amount: 0.1 }}
                         transition={{ duration: 0.5, delay: i * 0.1 }}
-                        className="flex flex-col sm:flex-row gap-6 items-start p-8 bg-white/60 backdrop-blur-md rounded-3xl group border border-slate-200 hover:border-slate-300 hover:bg-white hover:shadow-lg transition-all"
                     >
-                        <div className="w-16 h-16 shrink-0 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-700 group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all shadow-sm">
-                            <item.icon className="w-8 h-8" />
-                        </div>
-                        <div>
-                            <h3 className="text-2xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                            <p className="text-slate-600 font-medium leading-relaxed">{item.text}</p>
+                        <div className="h-full flex flex-col sm:flex-row gap-6 items-start p-8 bg-white/60 backdrop-blur-md rounded-3xl group border border-slate-200 hover:border-slate-300 hover:bg-white hover:shadow-lg transition-all">
+                            <div className="w-16 h-16 shrink-0 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-700 group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all shadow-sm">
+                                <item.icon className="w-8 h-8" />
+                            </div>
+                            <div>
+                                <h3 className="text-2xl font-bold text-slate-900 mb-3">{item.title}</h3>
+                                <p className="text-slate-600 font-medium leading-relaxed">{item.text}</p>
+                            </div>
                         </div>
                     </motion.div>
                 ))}

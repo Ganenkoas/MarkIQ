@@ -58,18 +58,19 @@ export function HowItWorksSection() {
                             key={index}
                             initial={{ opacity: 0, scale: 0.9, y: 30 }}
                             whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                            viewport={{ once: true, margin: "0px" }}
+                            viewport={{ once: true, margin: "0px", amount: 0.1 }}
                             transition={{ duration: 0.5, delay: index * 0.15 }}
-                            className="relative flex flex-col glass p-8 rounded-3xl bg-white/80 hover:bg-white transition-all duration-300 cursor-pointer shadow-glass group border border-slate-200 hover:border-primary/30 hover:shadow-lg"
                         >
-                            <div className="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:border-primary transition-colors duration-300 shadow-sm relative z-10">
-                                <step.icon className="w-8 h-8 text-slate-700 group-hover:text-white transition-colors duration-300" />
+                            <div className="relative h-full flex flex-col glass p-8 rounded-3xl bg-white/80 hover:bg-white transition-all duration-300 cursor-pointer shadow-glass group border border-slate-200 hover:border-primary/30 hover:shadow-lg">
+                                <div className="w-16 h-16 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:border-primary transition-colors duration-300 shadow-sm relative z-10">
+                                    <step.icon className="w-8 h-8 text-slate-700 group-hover:text-white transition-colors duration-300" />
+                                </div>
+                                <span className="absolute top-8 right-8 text-5xl font-black text-slate-100 group-hover:text-primary/10 transition-colors z-0">
+                                    {step.number}
+                                </span>
+                                <h3 className="text-xl font-bold text-slate-900 mb-3 relative z-10">{step.title}</h3>
+                                <p className="text-slate-600 text-sm leading-relaxed font-medium relative z-10">{step.description}</p>
                             </div>
-                            <span className="absolute top-8 right-8 text-5xl font-black text-slate-100 group-hover:text-primary/10 transition-colors z-0">
-                                {step.number}
-                            </span>
-                            <h3 className="text-xl font-bold text-slate-900 mb-3 relative z-10">{step.title}</h3>
-                            <p className="text-slate-600 text-sm leading-relaxed font-medium relative z-10">{step.description}</p>
                         </motion.div>
                     ))}
                 </div>

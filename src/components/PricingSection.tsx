@@ -25,40 +25,42 @@ export function PricingSection() {
                         key={i}
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "0px" }}
+                        viewport={{ once: true, margin: "0px", amount: 0.1 }}
                         transition={{ duration: 0.5, delay: i * 0.1 }}
-                        className={`relative flex flex-col p-8 rounded-[2.5rem] bg-white transition-all duration-300 hover:-translate-y-2 border ${plan.highlight ? "border-primary/50 shadow-xl shadow-primary/10 md:scale-105 z-10" : "border-slate-200 shadow-md hover:shadow-lg"
-                            }`}
+                        className={plan.highlight ? "z-10" : ""}
                     >
-                        {plan.highlight && (
-                            <div className="absolute -top-4 inset-x-0 flex justify-center">
-                                <span className="bg-primary text-white text-xs font-bold uppercase tracking-wider py-1.5 px-4 rounded-full shadow-md">
-                                    {plan.badge}
-                                </span>
-                            </div>
-                        )}
-
-                        <h3 className="text-xl font-bold text-slate-900 mb-2">{plan.name}</h3>
-                        <div className="mb-6 flex items-baseline">
-                            <span className="text-5xl font-black text-slate-900">{plan.price}</span>
-                            <span className="text-slate-500 font-medium ml-2">{plan.period}</span>
-                        </div>
-
-                        <ul className="space-y-4 mb-8 flex-1">
-                            {plan.features.map((feat, idx) => (
-                                <li key={idx} className="flex items-center gap-3 text-slate-700 font-medium">
-                                    <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
-                                        <Check className="w-4 h-4 text-primary" />
-                                    </div>
-                                    <span>{feat}</span>
-                                </li>
-                            ))}
-                        </ul>
-
-                        <button className={`w-full py-4 rounded-2xl font-bold transition-all ${plan.highlight ? "bg-primary hover:bg-cyan-600 text-white shadow-lg shadow-primary/30" : "bg-slate-100 hover:bg-slate-200 text-slate-900"
+                        <div className={`relative h-full flex flex-col p-8 rounded-[2.5rem] bg-white transition-all duration-300 hover:-translate-y-2 border ${plan.highlight ? "border-primary/50 shadow-xl shadow-primary/10 md:scale-105" : "border-slate-200 shadow-md hover:shadow-lg"
                             }`}>
-                            {t.pricing.choose} {plan.name}
-                        </button>
+                            {plan.highlight && (
+                                <div className="absolute -top-4 inset-x-0 flex justify-center">
+                                    <span className="bg-primary text-white text-xs font-bold uppercase tracking-wider py-1.5 px-4 rounded-full shadow-md">
+                                        {plan.badge}
+                                    </span>
+                                </div>
+                            )}
+
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">{plan.name}</h3>
+                            <div className="mb-6 flex items-baseline">
+                                <span className="text-5xl font-black text-slate-900">{plan.price}</span>
+                                <span className="text-slate-500 font-medium ml-2">{plan.period}</span>
+                            </div>
+
+                            <ul className="space-y-4 mb-8 flex-1">
+                                {plan.features.map((feat, idx) => (
+                                    <li key={idx} className="flex items-center gap-3 text-slate-700 font-medium">
+                                        <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
+                                            <Check className="w-4 h-4 text-primary" />
+                                        </div>
+                                        <span>{feat}</span>
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <button className={`w-full py-4 rounded-2xl font-bold transition-all ${plan.highlight ? "bg-primary hover:bg-cyan-600 text-white shadow-lg shadow-primary/30" : "bg-slate-100 hover:bg-slate-200 text-slate-900"
+                                }`}>
+                                {t.pricing.choose} {plan.name}
+                            </button>
+                        </div>
                     </motion.div>
                 ))}
             </div>

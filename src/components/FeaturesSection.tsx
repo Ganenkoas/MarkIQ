@@ -32,16 +32,17 @@ export function FeaturesSection() {
                         key={i}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "0px" }}
+                        viewport={{ once: true, margin: "0px", amount: 0.1 }}
                         transition={{ duration: 0.4, delay: (i % 3) * 0.1 }}
-                        className="bg-white/70 backdrop-blur-md p-6 border border-slate-200 rounded-2xl flex gap-4 items-start group hover:bg-white hover:border-slate-300 hover:shadow-lg transition-all cursor-pointer"
                     >
-                        <div className="p-3 bg-slate-50 border border-slate-100 rounded-xl text-primary group-hover:text-white group-hover:bg-primary transition-all duration-300 shadow-sm">
-                            <feature.icon className="w-6 h-6" />
-                        </div>
-                        <div>
-                            <h3 className="text-lg font-bold text-slate-900 mb-2">{feature.title}</h3>
-                            <p className="text-slate-600 text-sm leading-relaxed font-medium">{feature.text}</p>
+                        <div className="h-full bg-white/70 backdrop-blur-md p-6 border border-slate-200 rounded-2xl flex gap-4 items-start group hover:bg-white hover:border-slate-300 hover:shadow-lg transition-all cursor-pointer">
+                            <div className="p-3 bg-slate-50 border border-slate-100 rounded-xl text-primary group-hover:text-white group-hover:bg-primary transition-all duration-300 shadow-sm">
+                                <feature.icon className="w-6 h-6" />
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-bold text-slate-900 mb-2">{feature.title}</h3>
+                                <p className="text-slate-600 text-sm leading-relaxed font-medium">{feature.text}</p>
+                            </div>
                         </div>
                     </motion.div>
                 ))}
