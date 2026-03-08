@@ -50,7 +50,7 @@ export function Footer() {
                     </p>
                     <div className="flex items-center gap-4">
                         <span className="text-xs font-semibold uppercase tracking-widest text-slate-400 bg-slate-100 px-3 py-1 rounded-full">
-                            Концепт 2025
+                            Ограниченная бета-версия
                         </span>
                     </div>
                 </div>

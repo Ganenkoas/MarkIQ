@@ -13,7 +13,7 @@ export function HeroSection() {
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-200 bg-white/60 backdrop-blur-md mb-8 shadow-sm"
             >
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-xs uppercase tracking-wider font-semibold text-slate-600">Концепт продукта · 2025</span>
+                <span className="text-xs uppercase tracking-wider font-semibold text-slate-600">Экономит до 98% времени</span>
             </motion.div>
 
             <motion.h1
