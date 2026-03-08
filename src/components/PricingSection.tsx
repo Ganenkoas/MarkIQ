@@ -42,7 +42,7 @@ export function PricingSection() {
                         key={i}
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-50px" }}
+                        viewport={{ once: true, margin: "0px" }}
                         transition={{ duration: 0.5, delay: i * 0.1 }}
                         className={`relative flex flex-col p-8 rounded-[2.5rem] bg-white transition-all duration-300 hover:-translate-y-2 border ${plan.highlight ? "border-primary/50 shadow-xl shadow-primary/10 md:scale-105 z-10" : "border-slate-200 shadow-md hover:shadow-lg"
                             }`}

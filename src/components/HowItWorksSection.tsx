@@ -44,7 +44,7 @@ export function HowItWorksSection() {
                     <motion.div
                         initial={{ x: "-100%" }}
                         whileInView={{ x: "100%" }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: true, margin: "0px" }}
                         transition={{ duration: 2, delay: 0.5, ease: "easeInOut" }}
                         className="w-full h-full bg-gradient-to-r from-transparent via-primary to-transparent"
                     />
@@ -56,7 +56,7 @@ export function HowItWorksSection() {
                             key={index}
                             initial={{ opacity: 0, scale: 0.9, y: 30 }}
                             whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
+                            viewport={{ once: true, margin: "0px" }}
                             transition={{ duration: 0.5, delay: index * 0.15 }}
                             className="relative flex flex-col glass p-8 rounded-3xl bg-white/80 hover:bg-white transition-all duration-300 cursor-pointer shadow-glass group border border-slate-200 hover:border-primary/30 hover:shadow-lg"
                         >

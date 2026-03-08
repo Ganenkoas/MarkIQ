@@ -40,7 +40,7 @@ export function TargetAudienceSection() {
                         key={i}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-50px" }}
+                        viewport={{ once: true, margin: "0px" }}
                         transition={{ duration: 0.5, delay: i * 0.1 }}
                         className="flex flex-col sm:flex-row gap-6 items-start p-8 bg-white/60 backdrop-blur-md rounded-3xl group border border-slate-200 hover:border-slate-300 hover:bg-white hover:shadow-lg transition-all"
                     >
