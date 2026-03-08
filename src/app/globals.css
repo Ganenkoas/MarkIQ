@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-foreground selection:bg-primary/30 selection:text-primary font-sans antialiased overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card backdrop-blur-xl border border-slate-200 shadow-glass;
+  }
+
+  .neon-text-cyan {
+    text-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+  }
+
+  .neon-text-purple {
+    text-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+  }
+}
+
+/* Custom Scrollbar - Light Theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Animated gradient background mesh */
+.bg-mesh {
+  background-color: #f8fafc;
+  background-image:
+    radial-gradient(at 0% 0%, hsla(190, 96%, 85%, 0.4) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(260, 96%, 85%, 0.4) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(190, 96%, 85%, 0.4) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(260, 96%, 85%, 0.4) 0px, transparent 50%);
+}
